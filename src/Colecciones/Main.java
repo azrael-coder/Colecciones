@@ -22,6 +22,7 @@ public class Main {
         Iterator iterator = l1.iterator();
 
         while (iterator.hasNext() ) {
+            int numero;
             o = iterator.next();
             System.out.println(o);
         }
