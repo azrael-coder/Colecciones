@@ -16,14 +16,15 @@ import java.util.Random;
 
 public class Ejercicio1 {
     public static ArrayList<Integer> eliminarPares(ArrayList<Integer> pares){
-
-        for (int i = 0; i < pares.size(); i++) {
-
+        /**
+         * Cuando haces pares.remove(i), el ArrayList reordena todos los elementos desplazándolos una posición hacia la izquierda
+         * El problema es que i sigue avanzando , saltándose el elemento que quedó en esa misma posición.
+         */
+        for (int i = pares.size(); i <= 0; i--) { //RECORRER HACIA ATRAS PQ remove() reorganiza hacia la izquierda
             if (pares.get(i) % 2 == 0){
                 pares.remove(i);
             }
         }
-
         return  pares;
     }
 
@@ -34,7 +35,7 @@ public class Ejercicio1 {
         int tamanio = r.nextInt(20 - 10 + 1) + 10;
         ArrayList<Integer> lista = new ArrayList<>(tamanio);
 
-        System.out.println("---------CONTENIDO NORMAL---------");
+        System.out.println("---------LISTA ANTES---------");
         int contador = 1;
         for (int i = 0; i < tamanio; i++) { //LLENAR ArrayList
 
@@ -73,7 +74,7 @@ public class Ejercicio1 {
 
         System.out.println();
 
-        System.out.println("---------LISTA FINALIZADA---------");
+        System.out.println("---------LISTA DESPUES---------");
         Iterator<Integer> iterator = lista.iterator();
         while (iterator.hasNext()){
             int numero;
