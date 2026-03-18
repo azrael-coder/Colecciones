@@ -20,7 +20,7 @@ public class Ejercicio1 {
          * Cuando haces pares.remove(i), el ArrayList reordena todos los elementos desplazándolos una posición hacia la izquierda
          * El problema es que i sigue avanzando , saltándose el elemento que quedó en esa misma posición.
          */
-        for (int i = pares.size(); i <= 0; i--) { //RECORRER HACIA ATRAS PQ remove() reorganiza hacia la izquierda
+        for (int i = pares.size()-1; i >= 0; i--) { //RECORRER HACIA ATRAS PQ remove() reorganiza hacia la izquierda
             if (pares.get(i) % 2 == 0){
                 pares.remove(i);
             }
@@ -28,35 +28,39 @@ public class Ejercicio1 {
         return  pares;
     }
 
-    public static void main(String[] args) {
+    public static ArrayList<Integer> generarEnteros(int min, int max, int tamanio){
         Random r = new Random();
         int num;
-        int suma = 0;
-        int tamanio = r.nextInt(20 - 10 + 1) + 10;
+        int contador = 1;
         ArrayList<Integer> lista = new ArrayList<>(tamanio);
 
-        System.out.println("---------LISTA ANTES---------");
-        int contador = 1;
         for (int i = 0; i < tamanio; i++) { //LLENAR ArrayList
-
-            lista.add(r.nextInt(101));
+            lista.add(r.nextInt(max-min+1)+min);
             num = lista.get(i);
             System.out.println("Numero " + contador +  ":" + num);
-            suma += num;
 
             contador++;
         }
 
-        System.out.println();
-        System.out.println("---------SUMA---------");
-        System.out.println(suma);
+        return lista;
+    }
 
-        lista = eliminarPares(lista); //ELIMINAR PARES (en progreso)
+    public static void main(String[] args) {
+
+        System.out.println("---------LISTA ANTES---------");
+        ArrayList<Integer> lista = generarEnteros(10,20, 20);
+
+
+        System.out.println("---------SUMA---------");
+        int sum = 0;
+        for (Integer numero : lista) {
+            sum += numero;
+        }
+        System.out.println(sum);
 
          //---------REEMPLAZAR  DIVISIBLES POR 3---------
 
         for (int i = 0; i < lista.size(); i++) {
-
             if (lista.get(i) % 3 == 0){
                 lista.set(i,0);
             }
@@ -67,10 +71,13 @@ public class Ejercicio1 {
             System.out.print(i + " - ");
         }
 
-        for (int i = 0; i<lista.size();i++) {
+        for (int i = 0; i<lista.size();i++) {     //---------REEMPLAZAR  DIVISIBLES POR 5---------
             if (lista.get(i) % 5 == 0)
-                lista.set(i - 1, 555);
+                lista.add(i, 555);
+            i++;
         }
+
+        lista = eliminarPares(lista); //ELIMINAR PARES
 
         System.out.println();
 
