@@ -11,7 +11,6 @@ package ejercicios;
  */
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Ejercicio1 {
@@ -30,64 +29,56 @@ public class Ejercicio1 {
 
     public static ArrayList<Integer> generarEnteros(int min, int max, int tamanio){
         Random r = new Random();
-        int num;
-        int contador = 1;
         ArrayList<Integer> lista = new ArrayList<>(tamanio);
-
         for (int i = 0; i < tamanio; i++) { //LLENAR ArrayList
             lista.add(r.nextInt(max-min+1)+min);
-            num = lista.get(i);
-            System.out.println("Numero " + contador +  ":" + num);
-
-            contador++;
         }
-
         return lista;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println("---------LISTA ANTES---------");
-        ArrayList<Integer> lista = generarEnteros(10,20, 20);
-
-
-        System.out.println("---------SUMA---------");
-        int sum = 0;
-        for (Integer numero : lista) {
-            sum += numero;
+    public static String mostrarListaySuma( ArrayList<Integer> lista){
+        String resultado = "";
+        int suma = 0;
+        for (Integer i : lista){
+            resultado += i + " ";
+            suma += i;
         }
-        System.out.println(sum);
 
-         //---------REEMPLAZAR  DIVISIBLES POR 3---------
+        return resultado + "Suma: " + suma;
+    }
 
+    //---------REEMPLAZAR  DIVISIBLES POR 3---------
+    public static ArrayList<Integer> quitar3(ArrayList<Integer> lista){
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i) % 3 == 0){
                 lista.set(i,0);
             }
         }
+        return lista;
+    }
 
-        System.out.println("---------PRUEBA---------");
-        for (Integer i : lista) {
-            System.out.print(i + " - ");
-        }
-
-        for (int i = 0; i<lista.size();i++) {     //---------REEMPLAZAR  DIVISIBLES POR 5---------
+    //---------REEMPLAZAR  DIVISIBLES POR 5
+    public static ArrayList<Integer> quitar5(ArrayList<Integer> lista){
+        for (int i = 0; i<lista.size();i++) {
             if (lista.get(i) % 5 == 0)
                 lista.add(i, 555);
             i++;
         }
 
-        lista = eliminarPares(lista); //ELIMINAR PARES
+        return lista;
+    }
 
-        System.out.println();
 
-        System.out.println("---------LISTA DESPUES---------");
-        Iterator<Integer> iterator = lista.iterator();
-        while (iterator.hasNext()){
-            int numero;
-            numero = iterator.next();
-            System.out.print(numero+ "-");
-        }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> lista = generarEnteros(1,30,20);
+        lista = quitar3(lista);
+        lista = eliminarPares(lista);
+        lista = quitar5(lista);
+
+        String list = mostrarListaySuma(lista);
+
+        System.out.println(list);
 
     }
 }
