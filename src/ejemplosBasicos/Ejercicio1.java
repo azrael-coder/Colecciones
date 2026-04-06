@@ -1,4 +1,4 @@
-package ejercicios;
+package ejemplosBasicos;
 /*
  * Realiza un programa que introduzca valores aleatorios (entre 0 y 100) en un
  * ArrayList y que luego realice las siguientes operaciones: mostrar el contenido,

@@ -21,7 +21,6 @@ public class Agenda {
                 }
             }
         }
-
         return valido;
     }
 
@@ -60,12 +59,11 @@ public class Agenda {
         }
         return exito;
     }
-
      */
 
 
     public String buscarPersona(String dni) {
-        String resultado = "";
+        String resultado = null;
         if (!validarDni(dni) && dni != null ){
             for (Persona p : personas){
                 if (p.getDni().equals(dni) ){

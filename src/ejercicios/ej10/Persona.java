@@ -5,10 +5,6 @@ public class Persona {
     private String dni;
 
 
-    public Persona(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Persona(String nombre, String dni) {
         this.nombre = nombre;
         if (dni.length() == 9)
