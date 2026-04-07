@@ -14,6 +14,7 @@ public class AñadirPersona extends JDialog {
     public AñadirPersona(Agenda agenda) {
         setModal(true); //Esto bloquea la ventana de la que depende el JDialog, la ventana padre
         setContentPane(contentPane);
+        getRootPane().setDefaultButton(buttonOK);
         setSize(400, 180);
         setLocationRelativeTo(null);
         setVisible(true);

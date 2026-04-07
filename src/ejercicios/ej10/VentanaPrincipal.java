@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class VentanaPrincipal {
     private final JFrame ventana;
     protected JPanel panel1;
-    private JButton Añadir, Borrar, Buscar, mostrar;
+    private JButton añadir, borrar, Buscar, mostrar;
     private JPanel panel2;
     private JLabel Titulo;
     private final Agenda agenda = new Agenda();
@@ -21,7 +21,7 @@ public class VentanaPrincipal {
         ventana.setVisible(true);
 
 
-        Añadir.addActionListener(new ActionListener() {
+        añadir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AñadirPersona(agenda);
@@ -37,9 +37,6 @@ public class VentanaPrincipal {
             }
         });
     }
-
-
-
 
 
         public static void main(String[] args) {

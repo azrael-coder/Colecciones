@@ -14,19 +14,19 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="b63aa" class="javax.swing.JButton" binding="Añadir">
+          <component id="b63aa" class="javax.swing.JButton" binding="añadir">
             <constraints/>
             <properties>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
-              <text value="añadir"/>
+              <text value="Añadir"/>
               <verticalAlignment value="0"/>
             </properties>
           </component>
-          <component id="341ac" class="javax.swing.JButton" binding="Borrar">
+          <component id="341ac" class="javax.swing.JButton" binding="borrar">
             <constraints/>
             <properties>
-              <text value="borrar"/>
+              <text value="Borrar"/>
             </properties>
           </component>
           <component id="a947f" class="javax.swing.JButton" binding="Buscar">
