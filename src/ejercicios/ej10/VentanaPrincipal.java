@@ -17,7 +17,7 @@ public class VentanaPrincipal {
         ventana.setContentPane(panel1);
         ventana.setLocationRelativeTo(null);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setSize(600,500);
+        ventana.setSize(600,100);
         ventana.setVisible(true);
 
 
@@ -30,12 +30,44 @@ public class VentanaPrincipal {
         });
 
 
+        borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String dni = JOptionPane.showInputDialog(ventana,"DNI a borrar:");
+
+                if (dni != null) {
+                    boolean ok = agenda.borrarPersona(dni);
+
+                    JOptionPane.showMessageDialog(ventana, ok ? "Eliminado" : "DNI no encontrado"); //Se puede poner operador ternario dentro de un Dialogo de mensaje
+                }
+            }
+        });
+
+
+        Buscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String dni = JOptionPane.showInputDialog(ventana,"DNI a buscar:");
+                if (dni != null) {
+                    String persona = agenda.buscarPersona(dni);
+                    if (persona == null) {
+                        JOptionPane.showMessageDialog(ventana, "Persona no encontrada");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(ventana, "Nombre: " + persona);
+                    }
+                }
+            }
+        });
+
+
         mostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new VMostrar(agenda.muestraListaPersona());
             }
         });
+
     }
 
 

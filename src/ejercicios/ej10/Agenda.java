@@ -51,11 +51,10 @@ public class Agenda  {
         if (!validarDni(dni) && dni != null ){
             for (Persona p : personas){
                 if (p.getDni().equals(dni) ){
-                    resultado ="Nombre: " + p.getNombre();
+                    resultado = p.getNombre();
                 }
             }
         }
-
         return resultado;
     }
 
@@ -64,8 +63,8 @@ public class Agenda  {
             //Ordenar ArrayList por los nombres y alfabeticamente
             personas.sort(Comparator.comparing(Persona::getNombre)); // <-- Esto: Es equivalente a esto --> p.getNombre()
 
-            //El método sort() del ArrayList reordena los elementos in-place (modifica la propia lista)
-            //según el criterio que le pases como argumento. Ese criterio es un Comparator.
+            //El metodo sort() del ArrayList reordena los elementos modificando la propia lista
+            //segun el criterio que se le pase como argumento en, aqui es el Comparator
 
         Iterator<Persona> it = personas.iterator();
         while (it.hasNext()){

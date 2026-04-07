@@ -17,6 +17,8 @@
           <component id="b63aa" class="javax.swing.JButton" binding="añadir">
             <constraints/>
             <properties>
+              <background color="-13485851"/>
+              <foreground color="-262657"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
               <text value="Añadir"/>
@@ -26,18 +28,25 @@
           <component id="341ac" class="javax.swing.JButton" binding="borrar">
             <constraints/>
             <properties>
+              <background color="-13485851"/>
+              <foreground color="-262657"/>
               <text value="Borrar"/>
             </properties>
           </component>
           <component id="a947f" class="javax.swing.JButton" binding="Buscar">
             <constraints/>
             <properties>
+              <background color="-13485851"/>
+              <foreground color="-262657"/>
               <text value="Buscar"/>
             </properties>
           </component>
           <component id="ef20f" class="javax.swing.JButton" binding="mostrar">
             <constraints/>
             <properties>
+              <background color="-13485851"/>
+              <foreground color="-262657"/>
+              <hideActionText value="false"/>
               <text value="Ver Personas"/>
             </properties>
           </component>

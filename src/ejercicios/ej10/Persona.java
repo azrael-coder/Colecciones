@@ -18,4 +18,6 @@ public class Persona {
     public String getDni() {
         return dni;
     }
+
+
 }

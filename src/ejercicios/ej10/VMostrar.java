@@ -16,12 +16,12 @@ public class VMostrar {
 
     public VMostrar(String contenido) {
         ventana = new JDialog();
-        ventana.setModal(true);
+        ventana.setVisible(true);
         ventana.setContentPane(panel1);
         ventana.setLocationRelativeTo(null);
         ventana.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        ventana.setSize(500,400);
-        ventana.setVisible(true);
+        ventana.setSize(400,400);
+
 
         info.setText(contenido);
 
@@ -31,6 +31,8 @@ public class VMostrar {
                 ventana.dispose();
             }
         });
+
+
     }
 
 

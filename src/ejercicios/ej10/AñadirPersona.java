@@ -5,22 +5,24 @@ import java.awt.event.*;
 
 public class AñadirPersona extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JButton aceptar;
+    private JButton cancelar;
     private JTextField nombreTextField;
     private JTextField DNITextField;
 
 
     public AñadirPersona(Agenda agenda) {
-        setModal(true); //Esto bloquea la ventana de la que depende el JDialog, la ventana padre
+        setTitle("Añadir Persona");
+        setVisible(true);
         setContentPane(contentPane);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(aceptar);
         setSize(400, 180);
         setLocationRelativeTo(null);
-        setVisible(true);
 
 
-        buttonOK.addActionListener(new ActionListener() {
+
+        aceptar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 String nombre = nombreTextField.getText().trim();
                 String DNI = DNITextField.getText().trim();
@@ -43,7 +45,7 @@ public class AñadirPersona extends JDialog {
 
         });
 
-        buttonCancel.addActionListener(e -> dispose());
+        cancelar.addActionListener(e -> dispose());
 
 
 
@@ -52,6 +54,7 @@ public class AñadirPersona extends JDialog {
                 dispose();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
 
     }
 
