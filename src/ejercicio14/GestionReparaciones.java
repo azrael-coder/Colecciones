@@ -83,7 +83,7 @@ public class GestionReparaciones  {
      */
     public void listarOrdenadasFechaEntrada(){
         LinkedList<FichaVehiculo> ordenada= new LinkedList<>(enEspera);
-        Collections.sort(ordenada, (v1,v2) -> v1.getFecha().compareTo(v2.getFecha()) );
+        Comparator<FichaVehiculo> porFecha = (v1, v2) -> v2.getFecha().compareTo(v1.getFecha());
         Collections.reverse(ordenada);
 
         System.out.println("===Vehículos en espera ordenados por fecha===");
