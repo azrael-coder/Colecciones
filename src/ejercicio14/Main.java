@@ -5,21 +5,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        FichaVehiculo v1 = new FichaVehiculo("primero","13459IGL", LocalDateTime.now());
-        FichaVehiculo v2 = new FichaVehiculo("Segundo","24912ABC", LocalDateTime.now());
-        FichaVehiculo v3 = new FichaVehiculo("Tercero","35912ABC", LocalDateTime.now());
+        FichaVehiculo v1 = new FichaVehiculo("Primero","3564-IGL", LocalDateTime.of(2020,1,1,1,1));
+        FichaVehiculo v2 = new FichaVehiculo("Segundo","1412-ABC", LocalDateTime.of(2025,3,5,8,45));
+        FichaVehiculo v3 = new FichaVehiculo("Tercero","9837-XYZ", LocalDateTime.now());
         GestionReparaciones g = new GestionReparaciones();
 
 
         int opcion = 0;
-        while(opcion != 5){
+        while(opcion != 7){
             Scanner input = new Scanner(System.in);
             System.out.println("-----MENU-----");
             System.out.println("1. Añadir Vehiculo");
             System.out.println("2. Reparar siguiente vehiculo");
             System.out.println("3. Cola espera");
             System.out.println("4. Cola reparando");
-            System.out.println("5. Salir");
+            System.out.println("5. Ver Vehiculos ordenados");
+            System.out.println("6. Ver Vehiculos ordenados por fecha de entrada");
+            System.out.println("7. Salir");
             opcion = input.nextInt();
 
             switch(opcion){
@@ -44,6 +46,13 @@ public class Main {
                     break;
                 }
                 case 5: {
+                    g.listarOrdenadasMatricula();
+                    break;
+                }
+                case 6: {
+                    g.listarOrdenadasFechaEntrada();
+                }
+                case 7:{
                     System.out.println("Saliendo");
                     break;
                 }
