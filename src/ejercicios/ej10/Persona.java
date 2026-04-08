@@ -1,6 +1,8 @@
 package ejercicios.ej10;
 
-public class Persona {
+import java.util.Comparator;
+
+public class Persona  {
     private String nombre;
     private String dni;
 
@@ -18,6 +20,7 @@ public class Persona {
     public String getDni() {
         return dni;
     }
+
 
 
 }

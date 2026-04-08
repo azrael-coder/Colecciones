@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        FichaVehiculo v1 = new FichaVehiculo("primero","13459IJL", LocalDateTime.now());
+        FichaVehiculo v1 = new FichaVehiculo("primero","13459IGL", LocalDateTime.now());
         FichaVehiculo v2 = new FichaVehiculo("Segundo","24912ABC", LocalDateTime.now());
         FichaVehiculo v3 = new FichaVehiculo("Tercero","35912ABC", LocalDateTime.now());
         GestionReparaciones g = new GestionReparaciones();
