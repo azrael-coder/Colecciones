@@ -35,6 +35,9 @@ public class FichaVehiculo implements Comparable<FichaVehiculo> {
      */
     @Override
     public int compareTo(FichaVehiculo otra) {
-        return this.matricula.compareToIgnoreCase(otra.getMatricula());
+        if (otra != null) {
+            return this.matricula.compareToIgnoreCase(otra.getMatricula());
+        }
+        else return 0;
     }
 }

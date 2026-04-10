@@ -8,8 +8,8 @@ import java.util.LinkedList;
  */
 public class GestionReparaciones  {
 
-    LinkedList<FichaVehiculo> enEspera = new LinkedList<>();
-    LinkedList<FichaVehiculo> enReparacion = new LinkedList<>();
+     private LinkedList<FichaVehiculo> enEspera = new LinkedList<>();
+     private LinkedList<FichaVehiculo> enReparacion = new LinkedList<>();
 
     /**
      * Añade un nuevo vehículo a la cola de espera.
@@ -83,7 +83,8 @@ public class GestionReparaciones  {
      */
     public void listarOrdenadasFechaEntrada(){
         LinkedList<FichaVehiculo> ordenada= new LinkedList<>(enEspera);
-        Comparator<FichaVehiculo> porFecha = (v1, v2) -> v2.getFecha().compareTo(v1.getFecha());
+        Collections.sort(ordenada, new ComparadorFecha());
+        //Comparator<FichaVehiculo> porFecha = (v1, v2) -> v2.getFecha().compareTo(v1.getFecha());
         Collections.reverse(ordenada);
 
         System.out.println("===Vehículos en espera ordenados por fecha===");
