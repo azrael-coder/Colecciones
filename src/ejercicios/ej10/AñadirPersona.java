@@ -2,6 +2,7 @@ package ejercicios.ej10;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.time.LocalDate;
 
 public class AñadirPersona extends JDialog {
     private JPanel contentPane;
@@ -26,13 +27,14 @@ public class AñadirPersona extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 String nombre = nombreTextField.getText().trim();
                 String DNI = DNITextField.getText().trim();
+                LocalDate fenecimiento = LocalDate.now();
 
                 if (nombre.isEmpty() || DNI.isEmpty()) {
                     JOptionPane.showMessageDialog(contentPane,"Rellene todos los campos", "Error",JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                Persona persona = new Persona(nombre, DNI);
+                Persona persona = new Persona(nombre, DNI, fenecimiento);
                 boolean ok = agenda.aniadePersona(persona);
 
                 if (ok){
