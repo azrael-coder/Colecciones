@@ -2,11 +2,11 @@ package ejercicio14;
 
 import java.util.Comparator;
 
-public class ComparadorFecha implements Comparator<FichaVehiculo> {
+public class ComparadorFecha implements Comparator<Vehiculo> {
 
 
     @Override
-    public int compare(FichaVehiculo o1, FichaVehiculo o2) {
+    public int compare(Vehiculo o1, Vehiculo o2) {
         int resultado;
 
         if (o1 == null && o2 == null)  resultado = 0;

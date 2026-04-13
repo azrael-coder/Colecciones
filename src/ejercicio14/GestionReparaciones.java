@@ -8,15 +8,15 @@ import java.util.LinkedList;
  */
 public class GestionReparaciones  {
 
-     private LinkedList<FichaVehiculo> enEspera = new LinkedList<>();
-     private LinkedList<FichaVehiculo> enReparacion = new LinkedList<>();
+     private LinkedList<Vehiculo> enEspera = new LinkedList<>();
+     private LinkedList<Vehiculo> enReparacion = new LinkedList<>();
 
     /**
      * Añade un nuevo vehículo a la cola de espera.
      * @param v el vehículo a añadir
      * @return true si se añadió correctamente, false si el vehículo era null
      */
-    public boolean añadeVehiculo(FichaVehiculo v){
+    public boolean añadeVehiculo(Vehiculo v){
         if(v != null) {
             enEspera.offer(v);// offer() añade al final de la lista
             return true;
@@ -43,7 +43,7 @@ public class GestionReparaciones  {
      */
     public String verEspera(){
         String resultado="";
-        for (FichaVehiculo v: enEspera){
+        for (Vehiculo v: enEspera){
             resultado +="Matricula: "+ v.getMatricula() + "\n";
         }
         return resultado;
@@ -56,7 +56,7 @@ public class GestionReparaciones  {
      */
     public String verReparando(){
         String resultado="";
-        for (FichaVehiculo v: enReparacion){
+        for (Vehiculo v: enReparacion){
             resultado +="Matricula: " + v.getMatricula() + "\n";
         }
 
@@ -67,10 +67,10 @@ public class GestionReparaciones  {
      * Muestra por consola todos los vehículos en espera ordenados por matrícula.
      */
     public void listarOrdenadasMatricula(){
-        LinkedList<FichaVehiculo> ordenada= new LinkedList<>(enEspera);
+        LinkedList<Vehiculo> ordenada= new LinkedList<>(enEspera);
         Collections.sort(ordenada);
 
-        for (FichaVehiculo v: ordenada) {
+        for (Vehiculo v: ordenada) {
             System.out.println("Modelo: " + v.getModelo() +
                     " | Matrícula: " + v.getMatricula() +
                     " | Fecha: " + v.getFecha());
@@ -82,26 +82,26 @@ public class GestionReparaciones  {
      * Los más recientes aparecen primero.
      */
     public void listarOrdenadasFechaEntrada(){
-        LinkedList<FichaVehiculo> ordenada= new LinkedList<>(enEspera);
-        Comparator<FichaVehiculo> compararFechaEntrada = (v1,v2) -> {
-                int resultado;
+        LinkedList<Vehiculo> ordenada= new LinkedList<>(enEspera);
 
-                if (v1 == null && v2 == null)  resultado = 0;
+        ordenada.sort((v1, v2) -> {
+            int resultado;
 
-                else if (v1 != null && v2 ==null)  resultado = -1;
+            if (v1 == null && v2 == null) resultado = 0;
 
-                else if (v1 == null)  resultado = 1;
+            else if (v1 != null && v2 == null) resultado = -1;
 
-                else resultado = v1.getFecha().compareTo(v2.getFecha());
+            else if (v1 == null) resultado = 1;
 
-                return resultado;
-        };
+            else resultado = v1.getFecha().compareTo(v2.getFecha());
 
-        ordenada.sort(compararFechaEntrada);
+            return resultado;
+        });
+
         Collections.reverse(ordenada);
 
         System.out.println("===Vehículos en espera ordenados por fecha===");
-        for (FichaVehiculo v : ordenada) {
+        for (Vehiculo v : ordenada) {
             System.out.println("Modelo: " + v.getModelo() +
                     " | Matrícula: " + v.getMatricula() +
                     " | Fecha: " + v.getFecha());

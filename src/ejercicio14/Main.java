@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        FichaVehiculo v1 = new FichaVehiculo("Primero","3564-IGL", LocalDateTime.of(2020,1,1,1,1));
-        FichaVehiculo v2 = new FichaVehiculo("Segundo","1412-ABC", LocalDateTime.of(2025,3,5,8,45));
-        FichaVehiculo v3 = new FichaVehiculo("Tercero","9837-XYZ", LocalDateTime.now());
+        Vehiculo v1 = new Vehiculo("Primero","3564-IGL", LocalDateTime.of(2020,1,1,1,1));
+        Vehiculo v2 = new Vehiculo("Segundo","1412-ABC", LocalDateTime.of(2025,3,5,8,45));
+        Vehiculo v3 = new Vehiculo("Tercero","9837-XYZ", LocalDateTime.now());
         GestionReparaciones g = new GestionReparaciones();
 
 
