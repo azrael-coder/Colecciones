@@ -6,14 +6,16 @@ public class EjHashSet {
     public static void main(String[] args) {
         Persona p1 = new Persona("sf",44);
         Persona p2 = new Persona("tuti",25);
-        Persona p3 = new Persona("lisa",23);
+        Persona p3 = new Persona("lisa",25);
         Persona p4 = new Persona("lisa",23);
+        Persona p5 = new Persona("SF",11);
 
         HashSet<Persona> personas = new HashSet<>();
         personas.add(p1);
         personas.add(p2);
         personas.add(p3);
         personas.add(p4);
+        personas.add(p5);
 
         //personas.forEach(System.out::println);
 

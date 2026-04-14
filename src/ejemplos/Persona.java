@@ -33,13 +33,14 @@ public class Persona {
         if (!(o instanceof Persona persona))
             resultado = false;
         else
-            resultado = nombre.equals(persona.getNombre() );
+            resultado = nombre.equalsIgnoreCase(persona.getNombre() ) && edad == persona.getEdad() ;
 
         return resultado;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getNombre());
+        //return Objects.hashCode(getNombre().toLowerCase()  );
+        return Objects.hash(nombre.toLowerCase(), edad);
     }
 }
