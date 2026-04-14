@@ -1,7 +1,5 @@
 package ejercicio14;
-
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 /**
  * Gestiona la cola de vehículos en espera y en reparación de un taller.

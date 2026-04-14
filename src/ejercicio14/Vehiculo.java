@@ -1,7 +1,5 @@
 package ejercicio14;
-
 import java.time.LocalDateTime;
-
 public class Vehiculo implements Comparable<Vehiculo> {
     private String modelo;
     private String matricula;

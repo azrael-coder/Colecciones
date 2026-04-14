@@ -3,69 +3,56 @@
  */
 package Ejercicio4;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Scanner;
 
 public class Palabras {
     private HashSet<String> palabras = new HashSet<>();
 
-    public boolean aniadePalabra(String palabra ) {
-        if (palabra != null){
-            palabras.add(palabra);
-            return true;
-        }
-        return false;
+    public  void aniadePalabra() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escribe una palabra: ");
+        String pal = sc.nextLine();
+
+        palabras.add(pal.toLowerCase());
+        System.out.println("Palabra añadida");
+
+
     }
 
     public String listaPalabras() {
         String resultado = "";
 
+        ArrayList<String> ordenado = new ArrayList<>();
+        ordenado.addAll(palabras);
+        Collections.sort(ordenado);
 
-
-        Iterator<String> it = palabras.iterator();
-
-            while(it.hasNext()){
-                resultado = resultado + it.next() + " | ";
-            }
+        for (String p : ordenado) {
+            resultado += p + " | ";
+        }
         return resultado;
     }
 
-    public boolean eliminarPalabra(String palabra) {
+    public boolean eliminarPalabra(String pal) {
         boolean resultado;
-        String palMinuscula = palabra.toLowerCase();
+        String palMinuscula = pal.toLowerCase();
         resultado = palabras.removeIf(p -> p.equals(palMinuscula));
 
         return resultado;
     }
 
     public void borrarTodo(){
-        if(!palabras.isEmpty()){
-            palabras.clear();
-        }
+        palabras.clear();
+
     }
 
     public int mostrarTamaño(){
         return palabras.size();
     }
 
-    public String buscarPalabra(String palabra){
-        String resultado = "";
-        String palMinuscula = palabra.toLowerCase();
-
-        Iterator<String> it = palabras.iterator();
-        while(it.hasNext()){
-            if(it.next().equals(palMinuscula)){
-                resultado += it.next();
-            }
-        }
-        return resultado;
+    public boolean buscarPalabra(String pal){
+        String palMinuscula = pal.toLowerCase();
+        return palabras.contains(palMinuscula);
     }
-
-    private ArrayList<String> ordenar(HashSet<String> palabras){
-        ArrayList<String> resultado = new ArrayList<>();
-        Iterator<String> it = palabras.iterator();
-
-        return resultado;
-    }
-
 }
