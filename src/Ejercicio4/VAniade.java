@@ -21,10 +21,14 @@ public class VAniade extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 String palabra = palabraTextField.getText().trim().toLowerCase();
 
                 if (palabra.isEmpty()) {
                     JOptionPane.showMessageDialog(contentPane, "Debe ingresar la palabra", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else if (comprobarPalabra(palabra)) {
+                    JOptionPane.showMessageDialog(contentPane, "No se permiten numeros", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
                     pl.aniadePalabra(palabra);
@@ -34,13 +38,14 @@ public class VAniade extends JDialog {
             }
         });
 
+
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
 
-        // call onCancel() when cross is clicked
+
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -48,7 +53,7 @@ public class VAniade extends JDialog {
             }
         });
 
-        // call onCancel() on ESCAPE
+
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -56,6 +61,20 @@ public class VAniade extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    /**
+     * Metodo que valida que la cadena no sea numeros
+     * @param p palabra a validar
+     * @return true o false
+     */
+    private boolean comprobarPalabra(String p){
+        boolean confirmar = false;
+        for (int i = 0; i < p.length(); i++) {
+            if (Character.isDigit(p.charAt(i))){
+                confirmar = true;
+            }
+        }
+        return confirmar;
+    }
 
 
 }

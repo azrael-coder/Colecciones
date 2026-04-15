@@ -32,15 +32,12 @@ public class VPrincipal {
             }
         });
 
-        listarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (palabras.mostrarTamaño() == 0)
-                    JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
+        listarButton.addActionListener(evento -> {
+            if (palabras.mostrarTamaño() == 0)
+                JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(ventana,palabras.listaPalabras(),"Palabras", JOptionPane.INFORMATION_MESSAGE);
 
-                else
-                    JOptionPane.showMessageDialog(ventana,palabras.listaPalabras(),"Palabras", JOptionPane.INFORMATION_MESSAGE);
-            }
         });
 
 
@@ -63,21 +60,18 @@ public class VPrincipal {
         });
 
 
-        buscarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (palabras.mostrarTamaño() == 0)
-                    JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
+        buscarButton.addActionListener(e -> {
+            if (palabras.mostrarTamaño() == 0)
+                JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
 
-                else {
-                    String buscar = JOptionPane.showInputDialog(ventana, "Escriba la palabra para buscar:", "Buscar Palabra", JOptionPane.INFORMATION_MESSAGE);
-                    boolean confirmar = palabras.buscarPalabra(buscar);
+            else {
+                String buscar = JOptionPane.showInputDialog(ventana, "Escriba la palabra para buscar:", "Buscar Palabra", JOptionPane.INFORMATION_MESSAGE);
+                boolean confirmar = palabras.buscarPalabra(buscar);
 
-                    if (confirmar)
-                        JOptionPane.showMessageDialog(ventana, "Encontrada");
-                    else
-                        JOptionPane.showMessageDialog(ventana, "No existe la palabra", "", JOptionPane.WARNING_MESSAGE);
-                }
+                if (confirmar)
+                    JOptionPane.showMessageDialog(ventana, "Encontrada");
+                else
+                    JOptionPane.showMessageDialog(ventana, "No existe la palabra", "", JOptionPane.WARNING_MESSAGE);
             }
         });
         reestablecerButton.addActionListener(new ActionListener() {
@@ -92,6 +86,19 @@ public class VPrincipal {
                     if (confirmar == 0)
                         palabras.reestablecer();
                 }
+            }
+        });
+        mostrarTamañoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (palabras.mostrarTamaño() == 0)
+                    JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
+
+                else {
+                    int tamanio = palabras.mostrarTamaño();
+                    JOptionPane.showMessageDialog(ventana,tamanio,"Tamaño de Lista",JOptionPane.INFORMATION_MESSAGE);
+                }
+
             }
         });
     }
