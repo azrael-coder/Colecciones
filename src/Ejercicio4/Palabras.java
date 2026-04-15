@@ -10,15 +10,12 @@ import java.util.Scanner;
 public class Palabras {
     private HashSet<String> palabras = new HashSet<>();
 
-    public  void aniadePalabra() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Escribe una palabra: ");
-        String pal = sc.nextLine();
-
-        palabras.add(pal.toLowerCase());
-        System.out.println("Palabra añadida");
-
-
+    public boolean aniadePalabra(String pal) {
+        if (pal != null) {
+            palabras.add(pal);
+            return true;
+        }
+        return false;
     }
 
     public String listaPalabras() {
@@ -29,20 +26,30 @@ public class Palabras {
         Collections.sort(ordenado);
 
         for (String p : ordenado) {
-            resultado += p + " | ";
+            resultado += p + "\n";
         }
         return resultado;
     }
 
     public boolean eliminarPalabra(String pal) {
         boolean resultado;
-        String palMinuscula = pal.toLowerCase();
-        resultado = palabras.removeIf(p -> p.equals(palMinuscula));
-
+        if (pal == null) {
+            resultado = false;
+        }
+        else{
+            String palMinuscula = pal.toLowerCase();
+            palabras.removeIf(palMinuscula::contains);
+            resultado = true;
+        }
         return resultado;
     }
 
-    public void borrarTodo(){
+    public boolean buscarPalabra(String pal){
+        String palMinuscula = pal.toLowerCase();
+        return palabras.contains(palMinuscula);
+    }
+
+    public void reestablecer(){
         palabras.clear();
 
     }
@@ -51,8 +58,5 @@ public class Palabras {
         return palabras.size();
     }
 
-    public boolean buscarPalabra(String pal){
-        String palMinuscula = pal.toLowerCase();
-        return palabras.contains(palMinuscula);
-    }
+
 }
