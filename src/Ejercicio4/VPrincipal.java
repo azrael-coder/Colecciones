@@ -1,5 +1,6 @@
 /**
  * @author Israel Gonzalez Lopez
+ * @version 1.0
  */
 package Ejercicio4;
 import javax.swing.*;
@@ -28,7 +29,7 @@ public class VPrincipal {
         añadirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VAniade vAniade = new VAniade(palabras);
+                DAniade vAniade = new DAniade(palabras);
             }
         });
 
@@ -36,7 +37,7 @@ public class VPrincipal {
             if (palabras.mostrarTamaño() == 0)
                 JOptionPane.showMessageDialog(ventana,"La lista esta vacia","", JOptionPane.WARNING_MESSAGE);
             else
-                JOptionPane.showMessageDialog(ventana,palabras.listaPalabras(),"Palabras", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(ventana, palabras.listaPalabras(),"Palabras", JOptionPane.INFORMATION_MESSAGE);
 
         });
 
@@ -74,6 +75,8 @@ public class VPrincipal {
                     JOptionPane.showMessageDialog(ventana, "No existe la palabra", "", JOptionPane.WARNING_MESSAGE);
             }
         });
+
+
         reestablecerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

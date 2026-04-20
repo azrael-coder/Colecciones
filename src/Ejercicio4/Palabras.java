@@ -1,20 +1,20 @@
 /**
  * @author Israel Gonzalez Lopez
+ * @version 1.0
  */
 package Ejercicio4;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 
 public class Palabras {
     private HashSet<String> palabras = new HashSet<>();
 
     public boolean aniadePalabra(String pal) {
+        boolean resultado = false;
         if (pal != null) {
-            palabras.add(pal);
-            return true;
+            resultado =palabras.add(pal);
         }
-        return false;
+        return resultado;
     }
 
     public String listaPalabras() {
@@ -22,7 +22,21 @@ public class Palabras {
 
         ArrayList<String> ordenado = new ArrayList<>();
         ordenado.addAll(palabras);
-        Collections.sort(ordenado);
+
+
+        //Ordenar por tamaño y a igual tamaño alfabeticamente
+        ordenado.sort( (o1,o2) -> {
+            int orden;
+
+            if (o1.length() != o2.length()) {
+                orden = o1.length() - o2.length();
+            }
+            else
+                orden = o1.compareToIgnoreCase(o2);
+
+            return orden;
+        });
+
 
         for (String p : ordenado) {
             resultado += p + "\n";
@@ -32,13 +46,13 @@ public class Palabras {
 
     public boolean eliminarPalabra(String pal) {
         boolean resultado;
-        if (pal == null) {
+
+        if ( pal == null ) {
             resultado = false;
         }
         else{
             String palMinuscula = pal.toLowerCase();
-            palabras.removeIf(palMinuscula::contains);
-            resultado = true;
+            resultado = palabras.removeIf(n -> n.equals(palMinuscula));
         }
         return resultado;
     }

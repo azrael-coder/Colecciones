@@ -1,17 +1,18 @@
 /**
  * @author Israel Gonzalez Lopez
+ * @version 1.0
  */
 package Ejercicio4;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class VAniade extends JDialog {
+public class DAniade extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField palabraTextField;
 
-    public VAniade(Palabras pl) {
+    public DAniade(Palabras pl) {
         setContentPane(contentPane);
         setSize(400, 180);
         setTitle("Añadir Palabra");
@@ -31,8 +32,13 @@ public class VAniade extends JDialog {
                     JOptionPane.showMessageDialog(contentPane, "No se permiten numeros", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    pl.aniadePalabra(palabra);
-                    JOptionPane.showMessageDialog(contentPane,"Añadida","Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                    boolean agregada = pl.aniadePalabra(palabra);
+                    if  (agregada) {
+                        JOptionPane.showMessageDialog(contentPane,"Añadida","Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(contentPane,"No se ha añadido, ya existe","Confirmacion", JOptionPane.WARNING_MESSAGE);
+                    }
                     dispose();
                 }
             }
