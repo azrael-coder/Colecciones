@@ -1,8 +1,9 @@
 package ejemplos;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Persona {
+public class Persona implements Comparable<Persona> {
     private String nombre;
     private int edad;
 
@@ -42,5 +43,17 @@ public class Persona {
     public int hashCode() {
         //return Objects.hashCode(getNombre().toLowerCase()  );
         return Objects.hash(nombre.toLowerCase(), edad);
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        int resultado = 0   ;
+
+            if (this.edad == o.edad)
+                return resultado;
+            else
+                resultado = this.edad - o.edad;
+
+        return resultado;
     }
 }
