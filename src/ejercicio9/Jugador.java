@@ -2,13 +2,13 @@ package ejercicio9;
 
 import java.util.Objects;
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador>{
     private String nombre;
     private float estatura;
 
     public Jugador(String nombre, float estatura) {
         this.nombre = nombre;
-        if (estatura != 0) {
+        if (estatura > 0) {
             this.estatura = estatura;
         }
     }
@@ -29,6 +29,8 @@ public class Jugador {
                 '}';
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         boolean resultado = false;
@@ -44,5 +46,18 @@ public class Jugador {
     @Override
     public int hashCode() {
         return Objects.hash(getNombre(), getEstatura());
+    }
+
+    @Override
+    public int compareTo(Jugador o) {
+        int resultado;
+
+        if (o != null) {
+            resultado = nombre.compareTo(o.getNombre());
+        }
+        else
+            resultado = 1;
+
+        return resultado;
     }
 }
