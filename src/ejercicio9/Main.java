@@ -67,7 +67,7 @@ public class Main {
             listaOrdenada.addAll(lista);
 
             for (Jugador j : listaOrdenada){
-                resultado.append(j.getNombre() ).append(j.getEstatura());
+                resultado.append(j.getNombre() ).append(j.getEstatura() );
             }
 
         }
@@ -79,6 +79,8 @@ public class Main {
 
         System.out.println("Ingrese el nombre del jugador: ");
         String nombre = sc.nextLine();
+
+        sc.next();
 
         System.out.println("Ingrese la altura del jugador: ");
         float altura = sc.nextFloat();
