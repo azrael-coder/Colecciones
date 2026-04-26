@@ -1,6 +1,7 @@
 package ejercicio9;
 
 import java.util.Comparator;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -14,9 +15,9 @@ public class Main {
             opcion = menu(sc);
 
             switch(opcion){
-                case 1 -> añadirJugador(equipo,sc);
+                case 1 -> añadirJugador(equipo);
                 case 2 -> listarJugadores(equipo);
-                case 3 -> elimniarjugador(equipo,sc);
+                case 3 -> elimniarjugador(equipo);
                 case 4 -> reestablecerLista(equipo);
                 case 5 ->{
                     String plantilla = listarJugadoresAlturaNombre(equipo);
@@ -30,15 +31,21 @@ public class Main {
 
     }
 
-    public static void añadirJugador(TreeSet<Jugador> equipos, Scanner sc){
+    public static void añadirJugador(TreeSet<Jugador> equipos){
+        Scanner sc = new Scanner(System.in);
+
+        float altura = 0;
         System.out.println("Ingrese el nombre del jugador: ");
         String nombre = sc.nextLine();
 
-        sc.next();
 
         System.out.println("Ingrese la altura del jugador: ");
-        float altura = sc.nextFloat();
 
+        try {
+             altura = sc.nextFloat();
+        }catch (InputMismatchException e){
+            System.out.println("No se permite . para los decimales");
+        }
 
         if(equipos.add(new Jugador(nombre,altura)) ){
             System.out.println("Jugador agregado");
@@ -74,13 +81,13 @@ public class Main {
         return resultado.toString();
     }
 
-    public static void elimniarjugador(TreeSet<Jugador> equipos, Scanner sc){
+    public static void elimniarjugador(TreeSet<Jugador> equipos){
+        Scanner sc = new Scanner(System.in);
+
         boolean resultado;
 
         System.out.println("Ingrese el nombre del jugador: ");
         String nombre = sc.nextLine();
-
-        sc.next();
 
         System.out.println("Ingrese la altura del jugador: ");
         float altura = sc.nextFloat();
@@ -122,7 +129,6 @@ public class Main {
 
             System.out.println("Introduce una opcion:");
             opcion = sc.nextInt();
-
 
             if (opcion < 1 || opcion > 6){
                 System.out.println("Opcion invalida");

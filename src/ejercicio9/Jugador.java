@@ -24,8 +24,8 @@ public class Jugador implements Comparable<Jugador>{
     @Override
     public String toString() {
         return "Jugador{" +
-                "nombre='" + nombre + '\'' +
-                ", estatura=" + estatura +
+                "nombre='" + getNombre() + '\'' +
+                ", estatura=" + getEstatura() +
                 '}';
     }
 

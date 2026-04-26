@@ -51,7 +51,7 @@ public class Ejercicio7 {
         System.out.println("Correctos: " + correctas + " incorrectos: " + incorrectos);
 
         System.out.println("=====Ordenadas=====");
-        lista.sort((a,b)-> a.length() - b.length());
+        lista.sort(Comparator.comparingInt(String::length));
         for (String p : lista) {
             System.out.println(p + " | " + diccionario.get(p) );
         }
