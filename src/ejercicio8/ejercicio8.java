@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.util.Arrays;
-import java.util.Collections;
+package ejercicio8;
+
 import java.util.Scanner;
 import java.util.TreeSet;
 

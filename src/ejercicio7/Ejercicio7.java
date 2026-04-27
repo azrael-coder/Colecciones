@@ -30,8 +30,8 @@ public class Ejercicio7 {
 
             String palabra = lista.get(contador);
             System.out.print("Ingrese la traduccion en ingles de: " + palabra + ": ");
-            String traduccion = leer.nextLine().toLowerCase().trim(); //quitar espacios en blanco y pasarla a minuscula
 
+            String traduccion = leer.nextLine().toLowerCase().trim(); //quitar espacios en blanco y pasarla a minuscula
             String respuestaCorrecta = diccionario.get(palabra); // Pasandole la palabra extraida de la lista en español con indice 'contador'
             // al get() de diccionario extraigo la respuesta correcta luego comparo
 
