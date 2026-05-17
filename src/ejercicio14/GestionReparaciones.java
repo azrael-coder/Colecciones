@@ -16,14 +16,14 @@ public class GestionReparaciones  {
      */
     public boolean añadeVehiculo(Vehiculo v){
         if(v != null) {
-            enEspera.offer(v);// offer() añade al final de la lista
+            enEspera.add(v);
             return true;
         }
         return false;
     }
 
     /**
-     * Pasa el primer vehículo de la cola de espera a reparación.
+     * Pasa el primer vehículo que entro a la cola de espera a reparación.
      */
     public void reparar(){
         // No había vehículos pendientes
@@ -31,7 +31,7 @@ public class GestionReparaciones  {
             System.out.println("No hay vehiculos");
         }
         else {
-            enReparacion.offer(enEspera.pollFirst());
+            enReparacion.add(enEspera.poll());
         }
     }
 

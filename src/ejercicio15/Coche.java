@@ -1,4 +1,5 @@
 package ejercicio15;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -19,7 +20,7 @@ public class Coche {
                 System.out.println(k + " | " + v);
             }
         });
-        /*
+
         System.out.println();
 
         ArrayList<String> cochesArray = new ArrayList<>(coches.keySet());
@@ -29,7 +30,7 @@ public class Coche {
             System.out.println("Matricula: " +p + " | "+ " Marca: " + coches.get(p));
         }
 
-        */
+
 
     }
 

@@ -1,7 +1,6 @@
 package ejercicio6;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -42,11 +41,7 @@ public class Ejercicio6 {
 
         TreeMap<String,String> map = new TreeMap<>(usuarios);
 
-        Iterator<String> it = map.keySet().iterator();
-
-        while (it.hasNext()) {
-            String key = it.next();
-
+        for (String key : map.keySet()) {
             System.out.println(key + ": " + map.get(key));
         }
     }
